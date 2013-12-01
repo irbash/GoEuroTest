@@ -1,0 +1,42 @@
+<?xml version="1.0" ?> 
+<project name="GoEuroTest" default="jar">
+  <property name="build.path"          value="build" />
+
+	<path id="compile.classpath">
+			<fileset dir=".">
+				<include name="*.jar"/>
+			</fileset>
+		</path>
+	
+	<target name="init">
+		<mkdir dir="build/classes"/>
+		<mkdir dir="dist" />
+	</target>
+	
+	<target name="compile" depends="init" >
+		<javac destdir="build/classes" debug="false" srcdir="src">
+			<classpath refid="compile.classpath"/>
+		</javac>
+	</target>
+	
+     <target name="jar" depends="compile">
+			<jar destfile="dist/GoEuroTest.jar">
+				<manifest>
+				    <attribute name="Main-Class" value="org.goeuro.sample.main.GoEuroTest"/>
+				</manifest>
+		      	 <fileset dir="build/classes"
+		      		includes="**/*.class"
+		          	excludes="" />	
+				<fileset dir=".">
+					<include name="*.jar"/>
+				</fileset>
+				
+			</jar>	
+		</target>
+	
+	<target name="clean">
+		<delete dir="dist" />
+		<delete dir="build" />
+	</target>
+	
+</project>
