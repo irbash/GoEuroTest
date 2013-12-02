@@ -1,6 +1,7 @@
 package org.goeuro.sample.BL;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -99,7 +100,16 @@ public class GetJSONDataAndSaveCSV
         }
         try
         {
+            // Check if parent directory exist. If not try to create it.
+            File f = new File(filename);
+            File parent = new File(f.getParent());
+            if (!parent.exists())
+            {
+                parent.mkdirs();
+            }
+            // Create CSV file
             fileWriter = new FileWriter(filename);
+
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             for (GeoObject geoObj : results.getGeoObjects())
