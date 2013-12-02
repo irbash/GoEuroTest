@@ -1,0 +1,61 @@
+TestCase1: 
+
+Run the program with zero arguments: 
+java -jar GoEuroTest.jar
+
+Expected: Appropriate message for use to pass arguments. 
+Also provide details of possible arguments
+
+-------------------------------------------------------------------------------------------
+TestCase2: 
+
+Run the program with one argument without adding certificate to keystore 
+java -jar GoEuroTest.jar "zzz"
+
+Expected: Error
+Explain the user the reason for error. Provide appropriate details to fix the error
+
+-------------------------------------------------------------------------------------------
+TestCase3: 
+
+Run the program with one argument: 
+java -jar GoEuroTest.jar "zzz"
+
+Expected: Success, but no result
+No file is should be created since the result was empty
+
+-------------------------------------------------------------------------------------------
+TestCase4: 
+
+Run the program with one argument: 
+java -jar GoEuroTest.jar "Ber"
+
+Expected: Success. Result csv file is generated. (Ber_datetime.csv)
+
+-------------------------------------------------------------------------------------------
+TestCase5: 
+
+Run the program with two arguments: 
+java -jar GoEuroTest.jar "Ber" "MyBerResult.csv"
+
+Expected: Success. Result is stored in MyBerResult.csv file.
+
+-------------------------------------------------------------------------------------------
+TestCase6: 
+
+Run the program with two arguments: 
+java -jar GoEuroTest.jar "Ber" "C:\Users\MyBerResult.csv"
+
+Expected: Success. Result is stored in C:\Users\MyBerResult.csv file.
+
+-------------------------------------------------------------------------------------------
+TestCase7: 
+
+Run the program with three arguments: 
+java -jar GoEuroTest.jar "Ber" "https://api.goeuro.de/api/v1/suggest/position/en/name/" "C:\Users\MyBerResult.csv"
+
+Expected: Success. Result is stored in C:\Users\MyBerResult.csv file.
+
+Note: If alternate url is present, the system can be tested by giving alternate url as second parameter
+
+
