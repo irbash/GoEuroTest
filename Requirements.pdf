@@ -1,0 +1,48 @@
+Java Developer - Test
+The purpose of this test is to see how you approach a problem and what your solutions look like. The
+requirements for this test are simple and should be straightforward to grasp. When implementing a
+solution, please keep things simple as well. That said:
+Implement an API query and transform this data into a
+csv file
+Create a Java command line tool that takes as an input parameter a string
+java -jar GoEuroTest.jar "STRING"
+The program takes this string and queries with it our Location JSON API:
+The app should use this API endpoint:
+GET http://pre.dev.goeuro.de:12345/api/v1/suggest/position/en/name/STRING
+Where STRING is the string that the user has entered as a parameter when calling the tool.
+The API endpoint returns JSON documents like these:
+{
+"results" : [ {
+"_type" : "Position",
+"_id" : 410978,
+"name" : "Potsdam, USA",
+"type" : "location",
+"geo_position" : {
+"latitude" : 44.66978,
+"longitude" : -74.98131
+}
+}, {
+"_type" : "Position",
+"_id" : 377078,
+"name" : "Potsdam, Deutschland",
+"type" : "location",
+"geo_position" : {
+"latitude" : 52.39886,
+"longitude" : 13.06566
+}
+} ]
+}
+The endpoint always responds with a JSON object that has a results key. The value for that key is either
+null or an array of objects. Each object, among other keys, has a name and a geo_positition key. The
+geo_position key is an object with latitude and longitude fields.
+The program should query the API with the user input and create a CSV file from it. The CSV file should
+have the form: _type, _id, name, type, latitude, longitude
+Your solution
+Please implement your solution as a stand alone application which can be started from the command line,
+i.e. send us a fat jar file with all dependecies. You can use Java 7 and open source libraries that you think
+help you to fulfill this task.
+Also send us the source code to your solution. We use GitHub, so if you put your source code into a
+GitHub repository, it will make our life easier.
+We will evaluate your source code as well as the functionality of the program: Does it run, how does it
+handle errors, etc.
+Thank you!
